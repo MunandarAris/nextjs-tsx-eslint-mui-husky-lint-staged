@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🏗️👷 Styling, testing and building your project before committing'
+
+# Check ESLint Standards
+npm run lint ||
+(
+    echo 'Cek Kembali Aturan yang Telah Di Tetapkan';
+    false;
+)
+
+# Jika test nya sudah oke, maka perubahan akan di commit
+echo '🎉🎉🎉🎉 Yeayy, Code Anda Siap Di Push Ke Github . ✨🚀🏄‍♂️🍻'
+
+npx lint-staged
